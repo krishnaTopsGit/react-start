@@ -9,7 +9,12 @@ class Form extends Component {
             job: ''
         };
 
-        this.state = this.initialState
+        if(this.props.editData) {
+            this.state = this.props.editData
+        }
+        else {
+            this.state = this.initialState
+        }
     }
     handleChange = event => {
         const {name, value} = event.target;
@@ -41,7 +46,7 @@ class Form extends Component {
                     onChange={this.handleChange}/>
                 <input 
                     type="button" 
-                    value="Submit" 
+                    value="Add New" 
                     onClick={this.submitForm} />
             </form>
         );
